@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //Log.i(tag:"IMC",msg:"Se ha creado el MainActivity")
+        Log.i("IMC","Se ha creado el MainActivity")
         heightEditText = findViewById(R.id.heightEditText)
         weightTextView = findViewById(R.id.weightTextView)
         minusButton = findViewById(R.id.minusButton)
@@ -40,12 +40,12 @@ class MainActivity : AppCompatActivity() {
         minusButton.setOnClickListener{
             weight--
             setWeight()
-            //Log.i(tag:"IMC",msg:"He reducido el peso")
+            Log.i("IMC","He reducido el peso")
         }
         addButton.setOnClickListener{
             weight++
             setWeight()
-            //Log.i(tag:"IMC",msg:"He aumentado el peso")
+            Log.i("IMC","He aumentado el peso")
         }
         calculateButton.setOnClickListener {
             height = heightEditText.text.toString().toInt()
