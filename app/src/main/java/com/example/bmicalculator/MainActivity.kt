@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var descriptionTextview :TextView
     lateinit var resultTextView:TextView
     lateinit var  calculateButton: Button
+    lateinit var imageViewPanel: ImageView
 
     var height: Int = 120
     var weight: Int = 70
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         descriptionTextview = findViewById(R.id.descripcionTextView)
         resultTextView = findViewById(R.id.resultTextView)
         calculateButton = findViewById(R.id.calculateButton)
+        imageViewPanel = findViewById(R.id.imageViewPanel)
         setHeight()
         setWeight()
         minusButton.setOnClickListener{
@@ -56,6 +59,7 @@ class MainActivity : AppCompatActivity() {
                 descripcion = "Bajo peso severo"
                 descriptionTextview.setTextColor(Color.parseColor("#FF0000"))
                 resultTextView.setTextColor(Color.parseColor("#FF0000"))
+                //imageViewPanel.setImageResource()
             }
             else if ((result >= 16.5) && (result < 18.5)){
                 descripcion = "Bajo peso"
@@ -89,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             }
             descriptionTextview.text = descripcion.toString()
             resultTextView.text = result.toString()
+
         }
 
     };
