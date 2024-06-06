@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var  addButton: Button
     lateinit var descriptionTextview :TextView
     lateinit var resultTextView:TextView
+    lateinit var estadoTextView:TextView
     lateinit var  calculateButton: Button
     lateinit var imageViewPanel: ImageView
 
@@ -37,9 +38,13 @@ class MainActivity : AppCompatActivity() {
         descriptionTextview = findViewById(R.id.descripcionTextView)
         resultTextView = findViewById(R.id.resultTextView)
         calculateButton = findViewById(R.id.calculateButton)
+        estadoTextView = findViewById(R.id.estadoTextView)
         imageViewPanel = findViewById(R.id.imageViewPanel)
         setHeight()
         setWeight()
+        //Barra de titulo de la aplicacion
+        supportActionBar?.title = "Mi calculadores de IMC"
+        supportActionBar?.subtitle = "Una descripcion cualquiera"
         minusButton.setOnClickListener{
             weight--
             setWeight()
@@ -59,37 +64,44 @@ class MainActivity : AppCompatActivity() {
                 descripcion = "Bajo peso severo"
                 descriptionTextview.setTextColor(Color.parseColor("#FF0000"))
                 resultTextView.setTextColor(Color.parseColor("#FF0000"))
+                estadoTextView.text = "Aumente su peso"
                 //imageViewPanel.setImageResource()
             }
             else if ((result >= 16.5) && (result < 18.5)){
                 descripcion = "Bajo peso"
                 descriptionTextview.setTextColor(Color.parseColor("#FF6C00"))
                 resultTextView.setTextColor(Color.parseColor("#FF6C00"))
+                estadoTextView.text = "Aumente su peso"
             }
             else if ((result >= 18.5) && (result <25)){
                 descripcion = "Peso normal"
                 descriptionTextview.setTextColor(Color.parseColor("#00FF78"))
                 resultTextView.setTextColor(Color.parseColor("#00FF78"))
+                estadoTextView.text = "Peso correcto"
             }
             else if ((result >= 25) && (result <30)){
                 descripcion = "Sobrepeso"
                 descriptionTextview.setTextColor(Color.parseColor("#FF6C00"))
                 resultTextView.setTextColor(Color.parseColor("#FF6C00"))
+                estadoTextView.text = "Reduzca su peso"
             }
             else if ((result >= 30) && (result <35)) {
                 descripcion = "Obesidad tipo 1 (moderada)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF2E00"))
                 resultTextView.setTextColor(Color.parseColor("#FF2E00"))
+                estadoTextView.text = "Consulte con su medico"
             }
             else if ((result >= 35) && (result <40)) {
                 descripcion = "Obesidad tipo 2 (severa)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF2300"))
                 resultTextView.setTextColor(Color.parseColor("#FF2300"))
+                estadoTextView.text = "Consulte con su medico"
             }
             else if ((result >= 40)) {
                 descripcion = "Obesidad tipo 3 (mórbida)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF0000"))
                 resultTextView.setTextColor(Color.parseColor("#FF0000"))
+                estadoTextView.text = "Consulte con su medico"
             }
             descriptionTextview.text = descripcion.toString()
             resultTextView.text = result.toString()
