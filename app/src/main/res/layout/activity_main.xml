@@ -8,6 +8,52 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
     <!-- Altura -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            app:cardBackgroundColor="#DAC311"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="140dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:padding="8dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:padding="8dp">
+                    <TextView
+                        android:id="@+id/heightTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="24sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="cm"
+                        android:textSize="24sp"/>
+            </LinearLayout>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/heightSlider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:valueFrom="100"
+                android:valueTo="230"
+                android:stepSize="1"
+                app:tickVisible="false"
+                />
+        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
         android:layout_width="match_parent"

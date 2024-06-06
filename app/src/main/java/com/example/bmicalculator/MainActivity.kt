@@ -1,6 +1,7 @@
 package com.example.bmicalculator
 
 import android.graphics.Color
+import android.location.GnssAntennaInfo.Listener
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -11,9 +12,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.slider.Slider
+import com.google.android.material.slider.Slider.OnChangeListener
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
+    lateinit var heightTextView : EditText
+    lateinit var heightSlider : Slider
     lateinit var heightEditText : EditText
     lateinit var weightTextView : TextView
     lateinit var  minusButton: Button
@@ -31,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i("IMC","Se ha creado el MainActivity")
+        //heightTextView = findViewById(R.id.heightTextView)
+        heightSlider = findViewById(R.id.heightSlider)
         heightEditText = findViewById(R.id.heightEditText)
         weightTextView = findViewById(R.id.weightTextView)
         minusButton = findViewById(R.id.minusButton)
@@ -45,6 +52,10 @@ class MainActivity : AppCompatActivity() {
         //Barra de titulo de la aplicacion
         supportActionBar?.title = "Mi calculadores de IMC"
         supportActionBar?.subtitle = "Una descripcion cualquiera"
+
+        //heightSlider.addOnChangeListener(heightSlider)
+        heightSlider.value;
+
         minusButton.setOnClickListener{
             weight--
             setWeight()
@@ -117,5 +128,6 @@ class MainActivity : AppCompatActivity() {
     fun setWeight(){
         weightTextView.text = "$weight Kg"
     }
+
 
     }
