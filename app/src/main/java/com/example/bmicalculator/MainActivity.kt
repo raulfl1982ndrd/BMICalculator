@@ -112,12 +112,14 @@ class MainActivity : AppCompatActivity() {
                 descripcion = "Obesidad tipo 3 (mórbida)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF0000"))
                 resultTextView.setTextColor(Color.parseColor("#FF0000"))
-                estadoTextView.text = "Consulte con su medico"
+                estadoTextView.text = "Consulte con su médico"
             }
             descriptionTextview.text = descripcion.toString()
             resultTextView.text = result.toString()
 
         }
+//imageViewPanel.setImageURI(www.significado.com/wp-content/uploads/Imagen-Animada.jpg)
+
 
     };
 
