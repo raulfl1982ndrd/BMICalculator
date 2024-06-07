@@ -4,4 +4,8 @@
     <string name="main_activity_click_button">Pulsame</string>
     <string name="main_activity_welcome_text">Bienvenido a mi primera aplicación</string>
     <string name="main_activity_click_text">He pulsado el botón</string>
+    <string name="under_weight">peso bajo</string>
+    <string name="normal_weight">peso normal</string>
+    <string name="over_weight">sobre peso</string>
+    <string name="obesity">obesidad</string>
 </resources>
