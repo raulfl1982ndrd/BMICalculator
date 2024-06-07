@@ -3,4 +3,8 @@
     <string name="main_activity_click_button">Click me</string>
     <string name="main_activity_welcome_text">Welcome to my first App</string>
     <string name="main_activity_click_text">I clicked  the button</string>
+    <string name="under_weight">under_weight</string>
+    <string name="normal_weight">normal_weight</string>
+    <string name="over_weight">over_weight</string>
+    <string name="obesity">obesity</string>
 </resources>
