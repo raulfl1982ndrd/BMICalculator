@@ -1,5 +1,7 @@
 package com.example.bmicalculator
 
+import android.annotation.SuppressLint
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.icu.text.DecimalFormat
 import android.location.GnssAntennaInfo.Listener
@@ -18,7 +20,7 @@ import com.google.android.material.slider.Slider.OnChangeListener
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
-    lateinit var heightTextView : EditText
+    lateinit var heightTextView : TextView
     lateinit var heightSlider : Slider
     lateinit var heightEditText : EditText
     lateinit var weightTextView : TextView
@@ -29,15 +31,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var estadoTextView:TextView
     lateinit var  calculateButton: Button
     lateinit var imageViewPanel: ImageView
-
     var height: Int = 120
     var weight: Int = 70
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i("IMC","Se ha creado el MainActivity")
-        //heightTextView = findViewById(R.id.heightTextView)
+        heightTextView = findViewById(R.id.heightTextView)
         heightSlider = findViewById(R.id.heightSlider)
         heightEditText = findViewById(R.id.heightEditText)
         weightTextView = findViewById(R.id.weightTextView)
@@ -48,13 +50,24 @@ class MainActivity : AppCompatActivity() {
         calculateButton = findViewById(R.id.calculateButton)
         estadoTextView = findViewById(R.id.estadoTextView)
         imageViewPanel = findViewById(R.id.imageViewPanel)
+
+        heightSlider.value =height.toFloat()
+        setHeightTestView()
         setHeight()
         setWeight()
         //Barra de titulo de la aplicacion
         supportActionBar?.title = "Mi calculadores de IMC"
         supportActionBar?.subtitle = "Una descripcion cualquiera"
 
-        //heightSlider.addOnChangeListener(heightSlider)
+
+        imageViewPanel.setImageBitmap(BitmapFactory.decodeFile("pathToImageFile"));
+
+        heightSlider.addOnChangeListener { _, value, _ ->
+            height = value.toInt()
+            setHeightTestView()
+            heightEditText.setText(height.toString())
+        }
+
         heightSlider.value;
 
         minusButton.setOnClickListener{
@@ -62,6 +75,16 @@ class MainActivity : AppCompatActivity() {
             setWeight()
             Log.i("IMC","He reducido el peso")
         }
+/*
+        minusButton.setOnTouchListener { v, event ->
+            //weight--
+            //setWeight()
+            //Log.i("IMC","He reducido el peso")
+        }
+*/
+
+
+
         addButton.setOnClickListener{
             weight++
             setWeight()
@@ -98,60 +121,71 @@ class MainActivity : AppCompatActivity() {
                 descriptionTextview.setTextColor(Color.parseColor("#FF0000"))
                 resultTextView.setTextColor(Color.parseColor("#FF0000"))
                 estadoTextView.text = "Aumente su peso"
-                //imageViewPanel.setImageResource()
+                imageViewPanel.setImageResource(R.drawable.plus)
             }
             else if ((result >= 16.5) && (result < 18.5)){
                 descripcion = "Bajo peso"
                 descriptionTextview.setTextColor(Color.parseColor("#FF6C00"))
                 resultTextView.setTextColor(Color.parseColor("#FF6C00"))
                 estadoTextView.text = "Aumente su peso"
+                imageViewPanel.setImageResource(R.drawable.plus)
             }
             else if ((result >= 18.5) && (result <25)){
                 descripcion = "Peso normal"
                 descriptionTextview.setTextColor(Color.parseColor("#00FF78"))
                 resultTextView.setTextColor(Color.parseColor("#00FF78"))
                 estadoTextView.text = "Peso correcto"
+                imageViewPanel.setImageResource(R.drawable.equal)
             }
             else if ((result >= 25) && (result <30)){
                 descripcion = "Sobrepeso"
                 descriptionTextview.setTextColor(Color.parseColor("#FF6C00"))
                 resultTextView.setTextColor(Color.parseColor("#FF6C00"))
                 estadoTextView.text = "Reduzca su peso"
+                imageViewPanel.setImageResource(R.drawable.minus)
             }
             else if ((result >= 30) && (result <35)) {
                 descripcion = "Obesidad tipo 1 (moderada)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF2E00"))
                 resultTextView.setTextColor(Color.parseColor("#FF2E00"))
                 estadoTextView.text = "Consulte con su medico"
+                imageViewPanel.setImageResource(R.drawable.minus)
             }
             else if ((result >= 35) && (result <40)) {
                 descripcion = "Obesidad tipo 2 (severa)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF2300"))
                 resultTextView.setTextColor(Color.parseColor("#FF2300"))
                 estadoTextView.text = "Consulte con su medico"
+                imageViewPanel.setImageResource(R.drawable.minus)
             }
             else if ((result >= 40)) {
                 descripcion = "Obesidad tipo 3 (mórbida)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF0000"))
                 resultTextView.setTextColor(Color.parseColor("#FF0000"))
                 estadoTextView.text = "Consulte con su medico"
+                imageViewPanel.setImageResource(R.drawable.minus)
             }
             descriptionTextview.text = descripcion.toString()
             //Limitar el numero de decimales que muestra el resultTextView
             var decimalFormat = DecimalFormat("#.##")
             resultTextView.text = decimalFormat.format(result)
+            //esto seria utilizando los colores almacenados en values colors
             //resultTextView.setTextColor(descripctionColor)
             //descriptionTextview.setTextColor(descripctionColor)
         }
 
     };
-
+    fun setHeightTestView(){
+        heightTextView.setText(height.toString())
+    }
 
     fun setHeight(){
-        heightEditText.setText(height.toString())
+        //heightEditText.setText(height.toString())
+        heightTextView.text = getString(R.string.height_text,height)
     }
     fun setWeight(){
-        weightTextView.text = "$weight Kg"
+        //weightTextView.text = "$weight Kg"
+        weightTextView.text = getString(R.string.weight_text,weight,"Kg")
     }
 
 
