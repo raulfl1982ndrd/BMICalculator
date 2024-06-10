@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity() {
                 descripcion = "Obesidad tipo 3 (mórbida)"
                 descriptionTextview.setTextColor(Color.parseColor("#FF0000"))
                 resultTextView.setTextColor(Color.parseColor("#FF0000"))
-                estadoTextView.text = "Consulte con su médico"
+                estadoTextView.text = "Consulte con su medico"
             }
             descriptionTextview.text = descripcion.toString()
             //Limitar el numero de decimales que muestra el resultTextView
@@ -143,8 +143,6 @@ class MainActivity : AppCompatActivity() {
             //resultTextView.setTextColor(descripctionColor)
             //descriptionTextview.setTextColor(descripctionColor)
         }
-//imageViewPanel.setImageURI(www.significado.com/wp-content/uploads/Imagen-Animada.jpg)
-
 
     };
 

@@ -144,8 +144,7 @@
 
     <ImageView
         android:id="@+id/imageViewPanel"
-        android:layout_width="223dp"
-        android:layout_height="290dp"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_launcher_background" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
 </LinearLayout>

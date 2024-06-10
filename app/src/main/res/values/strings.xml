@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">BMICalculator</string>
+    <string name="height_label">Height</string>
+    <string name="weight_label">Weight</string>
     <string name="main_activity_click_button">Click me</string>
     <string name="main_activity_welcome_text">Welcome to my first App</string>
     <string name="main_activity_click_text">I clicked  the button</string>
+    <string name="height_text">%1$d cm</string>
+    <!--<string name="weight_text">%1$d Kg</string> -->
+    <string name="weight_text">%1$d %2$s</string>
     <string name="under_weight">under_weight</string>
     <string name="normal_weight">normal_weight</string>
     <string name="over_weight">over_weight</string>
