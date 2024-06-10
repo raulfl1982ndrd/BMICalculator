@@ -12,4 +12,10 @@
     <string name="normal_weight">normal_weight</string>
     <string name="over_weight">over_weight</string>
     <string name="obesity">obesity</string>
+    <string name="cm">cm</string>
+    <string name="resolve">Resolve</string>
+    <string name="Heightcontentdescription">Height</string>
+    <string name="minusweightcontentdescription">Minus weight</string>
+    <string name="plusweightcontentdescription">Plus weight</string>
+    <string name="imagecontentdescription">Should change your weight</string>
 </resources>

@@ -13,4 +13,11 @@
     <string name="normal_weight">peso normal</string>
     <string name="over_weight">sobre peso</string>
     <string name="obesity">obesidad</string>
+    <string name="cm">cm</string>
+    <string name="resolve">Calcular</string>
+    <string name="Heightcontentdescription">Altura</string>
+    <string name="minusweightcontentdescription">Menos peso</string>
+    <string name="plusweightcontentdescription">Mas peso</string>
+    <string name="imagecontentdescription">Debe cambiar supeso</string>
+
 </resources>
