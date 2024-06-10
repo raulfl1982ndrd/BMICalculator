@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BMICalculator</string>
+    <string name="height_label">Altura</string>
+    <string name="weight_label">Peso</string>
     <string name="main_activity_click_button">Pulsame</string>
     <string name="main_activity_welcome_text">Bienvenido a mi primera aplicación</string>
     <string name="main_activity_click_text">He pulsado el botón</string>
