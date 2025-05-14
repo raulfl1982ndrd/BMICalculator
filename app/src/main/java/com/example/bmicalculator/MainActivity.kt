@@ -18,7 +18,7 @@ import com.google.android.material.slider.Slider.OnChangeListener
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
-    lateinit var heightTextView : EditText
+    lateinit var heightTextView : TextView
     lateinit var heightSlider : Slider
     lateinit var heightEditText : EditText
     lateinit var weightTextView : TextView
@@ -30,14 +30,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var  calculateButton: Button
     lateinit var imageViewPanel: ImageView
 
-    var height: Int = 120
+    var height: Int = 170
     var weight: Int = 70
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.i("IMC","Se ha creado el MainActivity")
-        //heightTextView = findViewById(R.id.heightTextView)
+        heightTextView = findViewById(R.id.heightTextView)
         heightSlider = findViewById(R.id.heightSlider)
         heightEditText = findViewById(R.id.heightEditText)
         weightTextView = findViewById(R.id.weightTextView)
@@ -55,8 +55,12 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.subtitle = "Una descripcion cualquiera"
 
         //heightSlider.addOnChangeListener(heightSlider)
-        heightSlider.value;
+        //heightSlider.value;
 
+        heightSlider.addOnChangeListener { _, value, _ ->
+            height = value.toInt()
+            setHeight()
+        }
         minusButton.setOnClickListener{
             weight--
             setWeight()
@@ -149,6 +153,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setHeight(){
         heightEditText.setText(height.toString())
+        heightTextView.text = "$height cm"
     }
     fun setWeight(){
         weightTextView.text = "$weight Kg"

@@ -45,6 +45,7 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
                         android:text="@string/height_text"
+
                         android:textSize="24sp"/>
             </LinearLayout>
             <com.google.android.material.slider.Slider
