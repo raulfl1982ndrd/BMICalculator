@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.subtitle = "Una descripcion cualquiera"
 
         //heightSlider.addOnChangeListener(heightSlider)
-        //heightSlider.value;
+        heightSlider.value = height.toFloat()
 
         heightSlider.addOnChangeListener { _, value, _ ->
             height = value.toInt()
